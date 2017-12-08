@@ -18,6 +18,7 @@
     "material-design-icons": "^3.0.1",
     "material-ui": "^0.19.4",
     "material-ui-icons": "^1.0.0-beta.17",
+    "material-ui-search-bar": "^0.4.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-motion": "^0.5.2",
@@ -26,5 +27,9 @@
     "react-tap-event-plugin": "^3.0.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
