@@ -8,7 +8,8 @@ var config = {
 	
    devServer: {
       inline: true,
-      port: 8080
+      port: 8080,
+      historyApiFallback: true
    },
 	
    module: {
@@ -19,7 +20,8 @@ var config = {
             loader: 'babel-loader',
 				
             query: {
-               presets: ['es2015', 'react']
+               presets: ['es2015', 'react'],
+               plugins: ['transform-es2015-destructuring', 'transform-object-rest-spread']
             }
          }
       ]
