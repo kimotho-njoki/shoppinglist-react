@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 
-import LoginScreen from "./components/loginscreen";
-import ViewShoppinglist from "./components/shoppinglistview";
-import ViewItems from "./components/shoppingitemview";
-import Reset from "./components/passwordreset";
-import NotFound from "./components/notfound";
-import LogOut from "./components/logout";
-import { isAuthenticated } from "./helper";
+import LoginScreen from "./components/auth/loginscreen";
+import ViewShoppinglist from "./components/shoppinglists/shoppinglistview";
+import ViewItems from "./components/shoppingitems/shoppingitemview";
+import Reset from "./components/auth/passwordreset";
+import NotFound from "./components/misc/notfound";
+import LogOut from "./components/auth/logout";
+import { isAuthenticated } from "./components/auth/helper";
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -27,9 +27,9 @@ const Routes = () => (
 	<BrowserRouter>
 		<Switch>
 			<Route exact path="/" component={LoginScreen} />
-			<PrivateRoute path="/shoppinglists" component={ViewShoppinglist} />                                   
+			<PrivateRoute path="/shoppinglists" component={ViewShoppinglist} />                                                                                      
 			<PrivateRoute path="/items" component={ViewItems} />
-			<Route path="/reset" component={Reset} />                                                                    
+			<Route path="/reset" component={Reset} />                                                                                                                  
 			<PrivateRoute path="/logout" component={LogOut} />                                                                  
 			<Route path="*" component={NotFound} />
 		</Switch>
