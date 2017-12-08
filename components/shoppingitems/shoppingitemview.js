@@ -9,74 +9,15 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {blue700, redA700 } from 'material-ui/styles/colors';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import _ from 'lodash';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { styles } from '../../styling';
 
 import AddItem from "./shoppingitemadd";
 import UpdateItem from "./shoppingitemedit";
-import { SearchDisplayItem } from "./searchdisplay";
-
-const styles = {
-  text: {
-    fontFamily: "verdana",
-    fontSize: 19,
-    color: blue700
-  },
-  title: {
-  	backgroundColor: blue700,
-  },
-  del: {
-  	backgroundColor: redA700,
-  },
-  para: {
-    borderStyle: "solid",
-    borderWidth: "medium",
-    borderColor: blue700,
-    backgroundColor: blue700,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  root: {
-   	display: 'flex',
-  	flexWrap: 'wrap',
-  	justifyContent: 'space-around'
-  },
-  link: {
-  	color: blue700,
-  	backgroundColor: "transparent",
-  	textDecoration: 'none'
-  },
-  button: {
-  	position: 'fixed',
-  	bottom: "10%",
-  	right: "7%",
-  },
-  bar: {
-  	width: "40%",
-  	margin: '1%',
-  	position: 'absolute',
-  	right: '1%'
-  },
-  table: {
-  	margin: '10% 25% 0 25%',
-  	width: '50%',
-  	display: 'block',
-  	justifyContent: 'center',
-  	alignItem: 'center',
-  },
-  alertOPtions: {
-  	offset: 14,
-  	position: 'bottom left',
-  	theme: 'dark',
-  	transition: 'scale'
-  },
-};
+import { SearchDisplayItem } from "../misc/searchdisplay";
 
 class ViewItems extends React.Component {
 	constructor(props) {
@@ -279,7 +220,7 @@ class ViewItems extends React.Component {
 					 <TableHeader displaySelectAll={false}>
 						<TableRow>
 			              <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
-			                <p style={styles.text}> Your Shopping Items </p>
+			                <p style={styles.itemtext}> Your Shopping Items </p>
 			              </TableHeaderColumn>
 			            </TableRow>
     				</TableHeader>
@@ -288,8 +229,8 @@ class ViewItems extends React.Component {
 		    		{_.map(shoppingitemsArr, (item) => {
 		    			return(
 		    					<TableRow key={item.id}> 					
-		    					<TableRowColumn style={styles.text}> {item.name} </TableRowColumn>
-		    					<TableRowColumn style={styles.text}> {item.budgeted_amount} ksh </TableRowColumn>
+		    					<TableRowColumn style={styles.itemtext}> {item.name} </TableRowColumn>
+		    					<TableRowColumn style={styles.itemtext}> {item.budgeted_amount} ksh </TableRowColumn>
 		    					<TableRowColumn>
 		    						<FlatButton
 		    							style={styles.title}
@@ -349,11 +290,11 @@ class ViewItems extends React.Component {
 			<div>
 				<Toolbar>
 					<ToolbarGroup >
-						<Link to="/" style={styles.link}> <ToolbarTitle text="Home" /> </Link>
+						<Link to="/" style={styles.itemlink}> <ToolbarTitle text="Home" /> </Link>
 					</ToolbarGroup>
 
 					<ToolbarGroup>
-						<Link to="/logout" style={styles.link}> <ToolbarTitle text="Logout" /> </Link>
+						<Link to="/logout" style={styles.itemlink}> <ToolbarTitle text="Logout" /> </Link>
 					</ToolbarGroup>
 				</Toolbar>
 

@@ -2,23 +2,8 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import AlertContainer from 'react-alert';
 import TextField from 'material-ui/TextField';
-import {blue700} from 'material-ui/styles/colors';
 import axios from 'axios';
-
-const styles = {
-  text: {
-    borderColor: blue700,
-  },
-  back: {
-    backgroundColor: blue700
-  },
-  alertOPtions: {
-    offset: 14,
-    position: 'bottom left',
-    theme: 'dark',
-    transition: 'scale'
-  },
-};
+import { styles } from '../../styling';
 
 class Register extends React.Component {
   constructor(props) {
@@ -70,7 +55,7 @@ class Register extends React.Component {
   render() {
     return(
       <div>
-      <AlertContainer ref={a => this.msg = a} style={styles.alertOPtions} />
+      <AlertContainer ref={a => this.msg = a} {...styles.alertOptions} />
         <div>
           <TextField
              name="username"

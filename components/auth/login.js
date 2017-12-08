@@ -2,30 +2,10 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import AlertContainer from 'react-alert';
 import TextField from 'material-ui/TextField';
-import {blue700} from 'material-ui/styles/colors';
 import Dialog from 'material-ui/Dialog';
 import axios from 'axios';
 import { Redirect, Link } from "react-router-dom";
-
-
-const styles = {
-  text: {
-    borderColor: blue700,
-  },
-  back: {
-    backgroundColor: blue700
-  },
-  p: {
-    paddingTop: 20,
-    color: blue700
-  },
-  alertOPtions: {
-    offset: 14,
-    position: 'bottom left',
-    theme: 'dark',
-    transition: 'scale'
-  },
-};
+import { styles } from '../../styling';
 
 class Login extends React.Component {
   constructor(props){

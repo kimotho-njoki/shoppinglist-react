@@ -1,23 +1,6 @@
 import React from "react";
-import {blue700} from 'material-ui/styles/colors';
 import { Link } from "react-router-dom";
-
-const styles = {
-  link: {
-  	color: blue700,
-  	backgroundColor: "transparent",
-  	textDecoration: 'none',
-  	display: 'flex',
-  	flexWrap: 'wrap',
-  	justifyContent: 'space-around'
-  },
-  text: {
-  	paddingTop: 200,
-  	display: 'flex',
-  	flexWrap: 'wrap',
-  	justifyContent: 'space-around'
-  },
-};
+import { styles } from '../../styling';
 
 class LogOut extends React.Component {
 	constructor(props) {
@@ -33,7 +16,7 @@ class LogOut extends React.Component {
 	render() {
 		return(
 			<div>
-				<h2 style={styles.text}> You are now logged out. </h2>
+				<h2 style={styles.logtext}> You are now logged out. </h2>
 				<Link 
 					to="/"                                                                                                       
 					style={styles.link}

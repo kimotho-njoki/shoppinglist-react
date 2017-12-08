@@ -1,28 +1,11 @@
 import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-import { blue700 } from 'material-ui/styles/colors';
 
 import Login from "./login";
 import Register from "./register";
-import ViewShoppinglist from "./shoppinglistview";
-
-const styles = {
-  title: {
-    backgroundColor: blue700,
-  },
-  slide: {
-    paddingTop: 70,
-    paddingLeft: 370,
-    paddingRight: 370,
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  text: {
-    color: blue700,
-  },
-};
+import ViewShoppinglist from "../shoppinglists/shoppinglistview";
+import { styles } from '../../styling';
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -43,16 +26,16 @@ class LoginScreen extends React.Component {
   render() {
     return(
       <div>
-        <h2 align='center' style={styles.text}> 
+        <h2 align='center' style={styles.regtext}> 
         <u> Create Your ShoppingList With Ease </u>
         </h2> <br/>
         <p align='center'> 
         Already have an account? Click on <span 
-          style={styles.text}>Login</span> tab 
+          style={styles.regtext}>Login</span> tab 
         </p>
         <p align='center'> 
         Visiting us for the first time? Click on <span 
-          style={styles.text}>Register</span> tab to Sign Up
+          style={styles.regtext}>Register</span> tab to Sign Up
         </p>
 
         <Tabs style={styles.slide}

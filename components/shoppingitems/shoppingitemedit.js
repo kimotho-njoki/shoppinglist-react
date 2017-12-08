@@ -2,19 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import {blue700} from 'material-ui/styles/colors';
-
-const styles = {
-  text: {
-    borderColor: blue700,
-  },
-  title: {
-  	backgroundColor: blue700,
-  },
-  textbox: {
-  	paddingTop: 20,
-  },
-};
+import { styles } from '../../styling';
 
 const UpdateItem = props => (
 			<div>

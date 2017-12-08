@@ -9,7 +9,7 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {blue700} from 'material-ui/styles/colors';
+import { styles } from '../../styling';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import _ from 'lodash';
 import { Redirect, Link } from "react-router-dom";
@@ -17,61 +17,7 @@ import axios from 'axios';
 
 import EditShoppinglist from "./shoppinglistedit";
 import AddShoppinglist from "./shoppinglistadd";
-import { SearchDisplay } from "./searchdisplay";
-
-
-const styles = {
-  text: {
-    color: 'black',
-  },
-  title: {
-  	backgroundColor: blue700,
-  },
-  para: {
-    borderStyle: "solid",
-    borderWidth: "medium",
-    borderColor: blue700,
-    backgroundColor: blue700,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  root: {
-  	display: 'flex',
-  	flexWrap: 'wrap',
-  	justifyContent: 'space-around',
-  },
-  gridlist: {
-  	paddingTop: 80,
-  	width: 900,
-  	overflowY: 'auto',
-  },
-  link: {
-  	color: blue700,
-  	backgroundColor: "transparent",
-  	textDecoration: 'none'
-  },
-  button: {
-  	position: 'fixed',
-  	bottom: "10%",
-  	right: "7%",
-  },
-  bar: {
-  	width: "40%",
-  	margin: '1%',
-  	position: 'absolute',
-  	right: '1%'
-  },
-  alertOPtions: {
-  	offset: 14,
-  	position: 'bottom left',
-  	theme: 'dark',
-  	transition: 'scale'
-  },
-};
-
+import { SearchDisplay } from "../misc/searchdisplay";
 
 class ViewShoppinglist extends React.Component {
 	constructor(props) {
@@ -350,10 +296,10 @@ class ViewShoppinglist extends React.Component {
 			<div>
 				<Toolbar>
 					<ToolbarGroup >
-						<Link to="/" style={styles.link}> <ToolbarTitle text="Home" /> </Link>
+						<Link to="/" style={styles.listlink}> <ToolbarTitle text="Home" /> </Link>
 					</ToolbarGroup>
 					<ToolbarGroup>
-						<Link to="/logout" style={styles.link}> <ToolbarTitle text="Logout" /> </Link>
+						<Link to="/logout" style={styles.listlink}> <ToolbarTitle text="Logout" /> </Link>
 					</ToolbarGroup>
 				</Toolbar>
 
