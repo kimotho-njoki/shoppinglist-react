@@ -2,8 +2,10 @@
 A react application that consumes a shoppinglist api enabling a user to 
 * Register and create an account
 * Login into that account
-* Create, Update and Edit a shopping list
-* Create, Update and Edit shopping items
+* Create, Update and Delete a shopping list
+* Create, Update and Delete shopping items
+* Easily search for a shopping list or item
+* Work with paginated shopping lists and items
 
 #### Prerequisites:
 
