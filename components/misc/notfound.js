@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { styles } from '../../styling';
 
+// presentational component handling 404 page errors
 const NotFound = () => (
 	
 		<div>

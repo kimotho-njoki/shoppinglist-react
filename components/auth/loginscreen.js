@@ -17,6 +17,7 @@ class LoginScreen extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+// method handling change in slider state value
   handleChange(value) {
     this.setState({
       slideIndex: value,

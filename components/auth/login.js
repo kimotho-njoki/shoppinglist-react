@@ -22,18 +22,21 @@ class Login extends React.Component {
     this.showAlert = this.showAlert.bind(this);
   }
 
+// method for handling change in state once user inputs a value
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+// handles react alert messages
   showAlert() {
     this.msg.show('message', {
       time: 2000
     })
   }
 
+// posts user input to the api to log them in
   handleSubmit(event) {
     axios.post(
       'http://127.0.0.1:5000/auth/login/',
@@ -100,11 +103,6 @@ class Login extends React.Component {
              label="login" 
              onClick={this.handleSubmit} />
           </div>
-
-
-
-
-
           <p> Lost Your Password? <Link to='/reset' style={styles.p}> Reset Password </Link></p>
       </div>
       );

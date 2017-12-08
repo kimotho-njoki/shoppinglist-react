@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import { styles } from '../../styling';
 
+// presentational component housing the create item form
 const AddItem = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist item create" style={styles.title} />

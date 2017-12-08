@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import { styles } from '../../styling';
 
+// presentational component housing the update shoppinglist form
 const EditShoppinglist = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist update" style={styles.title} />

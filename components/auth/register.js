@@ -20,18 +20,21 @@ class Register extends React.Component {
     this.showAlert = this.showAlert.bind(this);
   }
 
+// method for handling change in state once user inputs a value
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+// handles react alert messages
   showAlert() {
     this.msg.show('message', {
       time: 2000,
     })
   }
 
+// posts user input to the api to register them
   handleSubmit(event) {
     axios.post(
       'http://127.0.0.1:5000/auth/register/',

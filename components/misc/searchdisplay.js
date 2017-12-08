@@ -5,6 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
+// presentational component handling shoppinglist search display
 export const SearchDisplay = (props) => {
 	const shoppinglistsArr = props.data
 	return (
@@ -51,6 +52,7 @@ export const SearchDisplay = (props) => {
 		)
 }
 
+// presentational component handling shoppinglist item search display
 export const SearchDisplayItem = (props) => {
 		const shoppingitemsArr = props.data
 		return (

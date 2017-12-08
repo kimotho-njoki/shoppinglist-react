@@ -49,12 +49,14 @@ class ViewItems extends React.Component {
 		this.getShoppingItems()
 	}
 
+// method handling the opening of an add modal
 	handleOpen() {
 		this.setState({
 			openAdd : true
 		});
 	}
 
+// method handling the closing of all modals
 	handleClose() {
 		this.setState({
 			openEdit: false,
@@ -63,24 +65,28 @@ class ViewItems extends React.Component {
 		});
 	}
 
+// handles react alert messages
 	showAlert() {
 		this.msg.show('message', {
 			time: 2000
 		})
 	}
 
+// handles saving the input value in state
 	handleSearch(value) {
 		this.setState({
 			search: value
 		});
 	}
 
+// handles change in state by adding the values in the form input
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 	});
 	}
 
+// handles change in state by replacing with the values in the form input
 	handleEditItemModal(id, name, budgeted_amount){
 		this.setState({
 			openEdit : true,
@@ -90,6 +96,7 @@ class ViewItems extends React.Component {
 		});
 	}
 
+// handles change in state
 	handleDeleteItemModal(id) {
 		this.setState({
 			openDelete : true,
@@ -97,6 +104,7 @@ class ViewItems extends React.Component {
 		});
 	}
 
+// posts user input to the api to create a shoppinglist item
 	handleAddItem(event) {
 		axios({
 			url: `http://127.0.0.1:5000/shoppinglists/${localStorage.getItem('shop_id')}/items`,
@@ -121,6 +129,7 @@ class ViewItems extends React.Component {
 		 )
 	}
 
+// puts user input to the api to update an existing shoppinglist item
 	handleEditItem() {
 		const { id } = this.state
 		axios({
@@ -146,6 +155,7 @@ class ViewItems extends React.Component {
 		 )
 	}
 
+// handles deletion of a shoppinglist item by connecting to the api 
 	handleDeleteItem() {
 		const { id } = this.state
 		axios({
@@ -167,6 +177,7 @@ class ViewItems extends React.Component {
 		 )
 	}
 
+// gets shoppinglist items from the api
 	getShoppingItems() {
 		axios({
 			url: `http://127.0.0.1:5000/shoppinglists/${localStorage.getItem('shop_id')}/items`,
@@ -186,6 +197,7 @@ class ViewItems extends React.Component {
 		 )
 	}
 
+// gets the shoppinglist item provided in search value
 	handleSearchItem() {
 		const { search } = this.state
 		axios({

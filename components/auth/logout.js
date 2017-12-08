@@ -9,6 +9,7 @@ class LogOut extends React.Component {
 		this.handleLogout = this.handleLogout.bind(this);
 	};
 
+// method handling removal of access token from local storage
 	handleLogout() {
 		localStorage.removeItem('token')
 	}

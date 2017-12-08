@@ -50,12 +50,14 @@ class ViewShoppinglist extends React.Component {
 		this.getShoppinglists()
 	}
 
+// method handling the opening of an add dialog modal
 	handleOpen() {
 		this.setState({
 			openAdd : true
 		});
 	}
 
+// method handling the closing of all dialog modals
 	handleClose() {
 		this.setState({
 			openEdit: false,
@@ -64,18 +66,21 @@ class ViewShoppinglist extends React.Component {
 		});
 	}
 
+// handles saving the input value in state
 	handleSearch(value) {
 		this.setState({
 			search: value
 		});
 	}
 
+// handles react alert messages
 	showAlert() {
 		this.msg.show('message', {
 			time: 2000
 		})
 	}
 
+// Redirects user to shoppinglist items
 	handleRedirect(id) {
 		localStorage.setItem('shop_id', id)
 		this.setState({
@@ -83,12 +88,14 @@ class ViewShoppinglist extends React.Component {
 		})
 	}
 
+// handles change in state by adding the values in the form input
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 	});
 	}
 
+// handles change in state by replacing with the values in the form input
 	handleEditModal(id, name) {
 		this.setState({
 			openEdit : true,
@@ -97,6 +104,7 @@ class ViewShoppinglist extends React.Component {
 		});
 	}
 
+// handles change in state
 	handleDeleteModal(id) {
 		this.setState({
 			openDelete : true,
@@ -104,6 +112,7 @@ class ViewShoppinglist extends React.Component {
 		});
 	}
 
+// posts user input to the api to create a shoppinglist 
 	handleAdd(event) {
 		axios({
 			url :'http://127.0.0.1:5000/shoppinglists/',
@@ -130,6 +139,7 @@ class ViewShoppinglist extends React.Component {
 		)
 	}
 
+// puts user input to the api to update an existing shoppinglist 
 	handleEdit() {
 		const { id } = this.state
 		axios({
@@ -150,6 +160,7 @@ class ViewShoppinglist extends React.Component {
 		)
 	}
 
+// handles deletion of a shoppinglist by connecting to the api
 	handleDelete() {
 		const { id } = this.state
 		axios({
@@ -167,6 +178,7 @@ class ViewShoppinglist extends React.Component {
 		)
 	}
 
+// gets shoppinglist from the api
 	getShoppinglists() {
 		axios({
 			url :'http://127.0.0.1:5000/shoppinglists/',
@@ -183,6 +195,7 @@ class ViewShoppinglist extends React.Component {
 		)
 	}
 
+// gets the shoppinglist provided in search value
 	handleSearchList() {
 		const { search } = this.state
 		axios({
@@ -206,6 +219,7 @@ class ViewShoppinglist extends React.Component {
 		)
 	}
 
+// handles drop down functionality
 	handleDropDown(event, index, value) {
 		this.setState({
 			value

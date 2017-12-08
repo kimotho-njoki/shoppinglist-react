@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import { styles } from '../../styling';
 
+// presentational component housing the create shoppinglist form
 const AddShoppinglist = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist create" style={styles.title} />

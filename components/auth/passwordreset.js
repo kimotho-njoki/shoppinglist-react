@@ -23,18 +23,21 @@ class Reset extends React.Component {
     this.showAlert = this.showAlert.bind(this);
   }
 
+// method for handling change in state once user inputs a value
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+// handles react alert messages
   showAlert() {
     this.msg.show('message', {
       time: 2000
     })
   }
 
+// method for handling password update by connecting to API
   handleSubmit(event) {
     axios({
       url: 'http://127.0.0.1:5000/auth/reset',
