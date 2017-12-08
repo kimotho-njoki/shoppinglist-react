@@ -16,13 +16,7 @@ const styles = {
   },
 };
 
-class AddItem extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return(
+const AddItem = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist item create" style={styles.title} />
 				<div>
@@ -33,7 +27,7 @@ class AddItem extends React.Component {
 						hintText="shoppinglist item name"
 						underlineFocusStyle={styles.text}
 			            floatingLabelStyle={styles.text}
-			            onChange={this.props.handleChange} />
+			            onChange={props.handleChange} />
 			        <br/>
 			        <TextField
 						style={styles.textbox}
@@ -43,16 +37,14 @@ class AddItem extends React.Component {
 						hintText="budgeted amount"
 						underlineFocusStyle={styles.text}
 			            floatingLabelStyle={styles.text}
-			            onChange={this.props.handleChange} />
+			            onChange={props.handleChange} />
 			        <br/>
 			        <FlatButton
 			        	style={styles.title}
 			        	label="Submit"
-			        	onClick={this.props.handleSubmit} />
+			        	onClick={props.handleSubmit} />
 				</div> 
 			</div>
-			);
-	}
-}
+			)
 
 export default AddItem;

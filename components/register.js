@@ -1,5 +1,6 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
+import AlertContainer from 'react-alert';
 import TextField from 'material-ui/TextField';
 import {blue700} from 'material-ui/styles/colors';
 import axios from 'axios';
@@ -10,6 +11,12 @@ const styles = {
   },
   back: {
     backgroundColor: blue700
+  },
+  alertOPtions: {
+    offset: 14,
+    position: 'bottom left',
+    theme: 'dark',
+    transition: 'scale'
   },
 };
 
@@ -25,12 +32,19 @@ class Register extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showAlert = this.showAlert.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  showAlert() {
+    this.msg.show('message', {
+      time: 2000,
+    })
   }
 
   handleSubmit(event) {
@@ -44,11 +58,11 @@ class Register extends React.Component {
       }
     ).then(
      (response) => {
-      alert("Registration successful. Now please LogIn.")        
+      this.msg.success("Registration successful. Now please LogIn.")        
     }
-    ).then(
+    ).catch(
       (error) => {
-          console.log(error)
+          this.msg.error(error.response.data.message)
         }
     )
   }
@@ -56,6 +70,7 @@ class Register extends React.Component {
   render() {
     return(
       <div>
+      <AlertContainer ref={a => this.msg = a} style={styles.alertOPtions} />
         <div>
           <TextField
              name="username"

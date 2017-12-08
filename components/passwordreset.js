@@ -1,6 +1,7 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import AlertContainer from 'react-alert';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import AppBar from 'material-ui/AppBar';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
@@ -29,6 +30,12 @@ const styles = {
     color: blue700,
     backgroundColor: "transparent",
   },
+  alertOPtions: {
+    offset: 14,
+    position: 'bottom left',
+    theme: 'dark',
+    transition: 'scale'
+  },
 };
 
 class Reset extends React.Component {
@@ -42,12 +49,19 @@ class Reset extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showAlert = this.showAlert.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  showAlert() {
+    this.msg.show('message', {
+      time: 2000
+    })
   }
 
   handleSubmit(event) {
@@ -64,11 +78,10 @@ class Reset extends React.Component {
         this.setState({
         	isReset: true
         })
-        console.log("reset successful")
       }
-    ).then(
+    ).catch(
       (error) => {
-        console.log(error)
+        this.msg.error(error.response.data.message)
       }
     )
   }
@@ -83,6 +96,7 @@ class Reset extends React.Component {
   	return(
   			<div style={styles.container}>
 				<AppBar title="Password Reset" style={styles.appbar} showMenuIconButton={false} />
+        <AlertContainer ref={a => this.msg = a} style={styles.alertOPtions} />
 				<p align='center' style={styles.text}> Please provide a valid email to be able to reset your password </p>
 				<p align='center' style={styles.text}> Upon successful Reset you will be redirected to Login page </p>
 				<br/><br/><br/><br/><br/><br/>

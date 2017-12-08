@@ -16,8 +16,7 @@ const styles = {
   },
 };
 
-const AddShoppinglist = (props) => {
-		return(
+const AddShoppinglist = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist create" style={styles.title} />
 				<div>
@@ -36,7 +35,6 @@ const AddShoppinglist = (props) => {
 					  onClick={props.handleSubmit} />
 				</div>
 			</div>
-			);
-}
+			)
 
 export default AddShoppinglist;

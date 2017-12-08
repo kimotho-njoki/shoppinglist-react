@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from 'material-ui-search-bar';
+import AlertContainer from 'react-alert';
 import {GridList, GridTile} from 'material-ui/GridList';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -63,6 +64,12 @@ const styles = {
   	position: 'absolute',
   	right: '1%'
   },
+  alertOPtions: {
+  	offset: 14,
+  	position: 'bottom left',
+  	theme: 'dark',
+  	transition: 'scale'
+  },
 };
 
 
@@ -90,6 +97,7 @@ class ViewShoppinglist extends React.Component {
 		this.handleEditModal = this.handleEditModal.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSearchList = this.handleSearchList.bind(this);
+		this.showAlert = this.showAlert.bind(this);
 	}
 
 	componentWillMount(){
@@ -114,6 +122,12 @@ class ViewShoppinglist extends React.Component {
 		this.setState({
 			search: value
 		});
+	}
+
+	showAlert() {
+		this.msg.show('message', {
+			time: 2000
+		})
 	}
 
 	handleRedirect(id) {
@@ -161,10 +175,11 @@ class ViewShoppinglist extends React.Component {
 		  	localStorage.setItem('id', id)
 		  	this.getShoppinglists()
 		  	this.handleClose()
+		  	this.msg.success("shoppinglist created")
 		  }
-		).then(
+		).catch(
 		  (error) => {
-		  	console.log(error)
+		  	this.msg.error(error.response.data.message)
 		  }
 		)
 	}
@@ -181,9 +196,10 @@ class ViewShoppinglist extends React.Component {
 		}).then((response) => {
 			this.getShoppinglists()
 			this.handleClose()
-		}).then(
+			this.msg.success("shoppinglist updated")
+		}).catch(
 		(error) => {
-			console.log(error)
+			this.msg.error(error.response.data.message)
 			}
 		)
 	}
@@ -197,9 +213,10 @@ class ViewShoppinglist extends React.Component {
 		}).then((response) => {
 			this.getShoppinglists()
 			this.handleClose()
-		}).then(
+			this.msg.success("shoppinglist deleted")
+		}).catch(
 		(error) => {
-			console.log(error)
+			this.msg.error(error.response.data.message)
 			}
 		)
 	}
@@ -213,9 +230,9 @@ class ViewShoppinglist extends React.Component {
 			this.setState({
 				shoppinglists: response.data.shoppinglists
 			});
-		}).then(
+		}).catch(
 		(error) => {
-			console.log(error)
+			this.msg.error(error.response.data.message)
 		  }
 		)
 	}
@@ -238,6 +255,7 @@ class ViewShoppinglist extends React.Component {
 				this.setState({
 					searchedshoppinglist: [],
 				});
+				this.msg.error('Shoppinglist does not exist')
 			}
 		)
 	}
@@ -338,6 +356,8 @@ class ViewShoppinglist extends React.Component {
 						<Link to="/logout" style={styles.link}> <ToolbarTitle text="Logout" /> </Link>
 					</ToolbarGroup>
 				</Toolbar>
+
+				<AlertContainer ref={a => this.msg = a} style={styles.alertOPtions} />
 
 				<FloatingActionButton 
 						title="click to create"

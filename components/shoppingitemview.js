@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from 'material-ui-search-bar';
+import AlertContainer from 'react-alert';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -8,7 +9,7 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {blue700, redA700} from 'material-ui/styles/colors';
+import {blue700, redA700 } from 'material-ui/styles/colors';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import _ from 'lodash';
 import axios from 'axios';
@@ -69,6 +70,12 @@ const styles = {
   	justifyContent: 'center',
   	alignItem: 'center',
   },
+  alertOPtions: {
+  	offset: 14,
+  	position: 'bottom left',
+  	theme: 'dark',
+  	transition: 'scale'
+  },
 };
 
 class ViewItems extends React.Component {
@@ -94,6 +101,7 @@ class ViewItems extends React.Component {
 		this.getShoppingItems = this.getShoppingItems.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSearchItem = this.handleSearchItem.bind(this);
+		this.showAlert = this.showAlert.bind(this);
 	}
 
 	componentWillMount(){
@@ -112,6 +120,12 @@ class ViewItems extends React.Component {
 			openAdd: false,
 			openDelete: false
 		});
+	}
+
+	showAlert() {
+		this.msg.show('message', {
+			time: 2000
+		})
 	}
 
 	handleSearch(value) {
@@ -157,10 +171,11 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
+				this.msg.success("shoppinglist item created")
 			}
-		 ).then(
+		 ).catch(
 		 	(error) => {
-		 		console.log(error)
+		 		this.msg.error(error.response.data.message)
 		 	}
 		 )
 	}
@@ -181,10 +196,11 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
+				this.msg.success("shoppinglist item updated")
 			}
-		 ).then(
+		 ).catch(
 		 	(error) => {
-		 		console.log(error)
+		 		this.msg.error(error.response.data.message)
 		 	}
 		 )
 	}
@@ -201,10 +217,11 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
+				this.msg.success("shoppinglist item deleted")
 			}
-		 ).then(
+		 ).catch(
 		 	(error) => {
-		 		console.log(error)
+		 		this.msg.error(error.response.data.message)
 		 	}
 		 )
 	}
@@ -221,9 +238,9 @@ class ViewItems extends React.Component {
 				this.setState({
 					shoppingitems: response.data.shoppingitems
 				});
-		}).then(
+		}).catch(
 			(error) => {
-				console.log(error)
+				this.msg.error(error.response.data.message)
 			}
 		 )
 	}
@@ -246,6 +263,7 @@ class ViewItems extends React.Component {
 				this.setState({
 					searchedshoppingitem: [],
 				});
+				this.msg.error("shopping item does not exist")
 			}
 		)
 	}
@@ -338,6 +356,8 @@ class ViewItems extends React.Component {
 						<Link to="/logout" style={styles.link}> <ToolbarTitle text="Logout" /> </Link>
 					</ToolbarGroup>
 				</Toolbar>
+
+				<AlertContainer ref={a => this.msg = a} style={styles.alertOPtions} />
 
 				<FloatingActionButton 
 					title="click to create"

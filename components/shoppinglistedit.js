@@ -16,13 +16,8 @@ const styles = {
   },
 };
 
-class EditShoppinglist extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
-	render() {
-		return(
+const EditShoppinglist = props => (
 			<div>
 				<AppBar showMenuIconButton={false} title="shoppinglist update" style={styles.title} />
 				<div>
@@ -30,22 +25,19 @@ class EditShoppinglist extends React.Component {
 					  style={styles.textbox}
 					  name= "newshoppinglistname"
 					  type="text"
-					  defaultValue={this.props.initialValue}
+					  defaultValue={props.initialValue}
 					  underlineFocusStyle={styles.text}
 			          floatingLabelStyle={styles.text}
-			          onChange={this.props.handleChange}
+			          onChange={props.handleChange}
 					   />
 					<br/>
 					<FlatButton
 					  style={styles.title}
 					  label="Submit"
-					  onClick={this.props.handleSubmit}
+					  onClick={props.handleSubmit}
 					   />
 				</div>
 			</div>
-			);	
-	}
-
-}
+			)
 
 export default EditShoppinglist;
