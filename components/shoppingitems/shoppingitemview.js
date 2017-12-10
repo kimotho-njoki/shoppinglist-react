@@ -120,7 +120,7 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
-				this.msg.success("shoppinglist item created")
+				this.msg.success(response.data.message)
 			}
 		 ).catch(
 		 	(error) => {
@@ -146,7 +146,7 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
-				this.msg.success("shoppinglist item updated")
+				this.msg.success(response.data.message)
 			}
 		 ).catch(
 		 	(error) => {
@@ -168,7 +168,7 @@ class ViewItems extends React.Component {
 			(response) => {
 				this.getShoppingItems()
 				this.handleClose()
-				this.msg.success("shoppinglist item deleted")
+				this.msg.success(response.data.message)
 			}
 		 ).catch(
 		 	(error) => {

@@ -46,7 +46,7 @@ class Register extends React.Component {
       }
     ).then(
      (response) => {
-      this.msg.success("Registration successful. Now please LogIn.")        
+      this.msg.success(response.data.message)   
     }
     ).catch(
       (error) => {

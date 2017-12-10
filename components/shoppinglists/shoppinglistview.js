@@ -130,7 +130,7 @@ class ViewShoppinglist extends React.Component {
 		  	localStorage.setItem('id', id)
 		  	this.getShoppinglists()
 		  	this.handleClose()
-		  	this.msg.success("shoppinglist created")
+		  	this.msg.success(response.data.message)
 		  }
 		).catch(
 		  (error) => {
@@ -152,7 +152,7 @@ class ViewShoppinglist extends React.Component {
 		}).then((response) => {
 			this.getShoppinglists()
 			this.handleClose()
-			this.msg.success("shoppinglist updated")
+			this.msg.success(response.data.message)
 		}).catch(
 		(error) => {
 			this.msg.error(error.response.data.message)
@@ -170,7 +170,7 @@ class ViewShoppinglist extends React.Component {
 		}).then((response) => {
 			this.getShoppinglists()
 			this.handleClose()
-			this.msg.success("shoppinglist deleted")
+			this.msg.success(response.data.message)
 		}).catch(
 		(error) => {
 			this.msg.error(error.response.data.message)
