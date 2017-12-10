@@ -1,4 +1,4 @@
-import {blue700} from 'material-ui/styles/colors';
+import { blue700, redA700 } from 'material-ui/styles/colors';
 
 export const styles = {
 	text: {
