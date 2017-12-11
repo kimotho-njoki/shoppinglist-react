@@ -11,29 +11,29 @@ import { isAuthenticated } from "./components/auth/helper";
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-	<Route {...rest} render={props => (
-		isAuthenticated ? (
-			<Component {...props} />
-			) : (
-			  <Redirect to={{
-			  	pathname:'/',
-			  	state: {from: props.location}
-			  }}/>
-			) 
-		)}/>
-	)
+    <Route {...rest} render={props => (
+        isAuthenticated ? (
+            <Component {...props} />
+            ) : (
+              <Redirect to={{
+                pathname:'/',
+                state: {from: props.location}
+              }}/>
+            ) 
+        )}/>
+    )
 
 const Routes = () => (
-	<BrowserRouter>
-		<Switch>
-			<Route exact path="/" component={LoginScreen} />
-			<PrivateRoute path="/shoppinglists" component={ViewShoppinglist} />                                                                                      
-			<PrivateRoute path="/items" component={ViewItems} />
-			<Route path="/reset" component={Reset} />                                                                                                                  
-			<PrivateRoute path="/logout" component={LogOut} />                                                                  
-			<Route path="*" component={NotFound} />
-		</Switch>
-	</BrowserRouter>
-	)
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={LoginScreen} />
+            <PrivateRoute path="/shoppinglists" component={ViewShoppinglist} />                                                                                      
+            <PrivateRoute path="/items" component={ViewItems} />
+            <Route path="/reset" component={Reset} />                                                                                                                  
+            <PrivateRoute path="/logout" component={LogOut} />                                                                  
+            <Route path="*" component={NotFound} />
+        </Switch>
+    </BrowserRouter>
+    )
 
 export default Routes;
