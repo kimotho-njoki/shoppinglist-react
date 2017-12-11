@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kimotho-njoki/shoppinglist-react.svg?branch=master)](https://travis-ci.org/kimotho-njoki/shoppinglist-react)
+
 # shoppinglist-react
 A react application that consumes a shoppinglist api enabling a user to 
 * Register and create an account
