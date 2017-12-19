@@ -17,6 +17,7 @@ import { styles } from '../../styling';
 
 import AddItem from "./shoppingitemadd";
 import UpdateItem from "./shoppingitemedit";
+import Pagination from "../misc/pagination";
 import { SearchDisplayItem } from "../misc/searchdisplay";
 
 class ViewItems extends React.Component {
@@ -42,6 +43,7 @@ class ViewItems extends React.Component {
         this.getShoppingItems = this.getShoppingItems.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSearchItem = this.handleSearchItem.bind(this);
+        this.handlePagination = this.handlePagination.bind(this);
         this.showAlert = this.showAlert.bind(this);
     }
 
@@ -120,7 +122,7 @@ class ViewItems extends React.Component {
             (response) => {
                 this.getShoppingItems()
                 this.handleClose()
-                this.msg.success(response.data.message)
+                this.msg.success("Item created")
             }
          ).catch(
             (error) => {
@@ -146,7 +148,7 @@ class ViewItems extends React.Component {
             (response) => {
                 this.getShoppingItems()
                 this.handleClose()
-                this.msg.success(response.data.message)
+                this.msg.success("Item updated")
             }
          ).catch(
             (error) => {
@@ -188,7 +190,9 @@ class ViewItems extends React.Component {
         }).then(
             (response) => {
                 this.setState({
-                    shoppingitems: response.data.shoppingitems
+                    shoppingitems: response.data.shoppingitems,
+                    nextpage: response.data.next_page,
+                    prevpage: response.data.previous_page,
                 });
         }).catch(
             (error) => {
@@ -216,6 +220,26 @@ class ViewItems extends React.Component {
                     searchedshoppingitem: [],
                 });
                 this.msg.error("shopping item does not exist")
+            }
+        )
+    }
+
+// get shoppingitems in paginated format 
+    handlePagination(url) {
+        axios({
+            url: `http://127.0.0.1:5000${url}`,
+            method: 'GET',
+            headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
+        }).then(
+            (response) => {
+                this.setState({
+                    nextpage: response.data.next_page,
+                    prevpage: response.data.previous_page,
+                    shoppingitems: response.data.shoppingitems
+                });
+        }).catch(
+            (error) => {
+                this.msg.error(error.response.data.message)
             }
         )
     }
@@ -301,7 +325,7 @@ class ViewItems extends React.Component {
             <div>
                 <Toolbar>
                     <ToolbarGroup >
-                        <Link to="/" style={styles.itemlink}> <ToolbarTitle text="Home" /> </Link>
+                        <Link to="/shoppinglists" style={styles.itemlink}> <ToolbarTitle text="Back" /> </Link>
                     </ToolbarGroup>
 
                     <ToolbarGroup>
@@ -356,6 +380,12 @@ class ViewItems extends React.Component {
                     open={this.state.openDelete} >
                     <p style={styles.para}> Permanently delete this item? </p>
                 </Dialog>
+
+                <Pagination 
+                    nextpage={this.state.nextpage}
+                    prevpage={this.state.prevpage}
+                    handlePagination={this.handlePagination}
+                />
             </div>
         )
     }
