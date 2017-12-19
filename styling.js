@@ -1,8 +1,18 @@
-import { blue700, redA700 } from 'material-ui/styles/colors';
+import { blue700, redA700, blue500 } from 'material-ui/styles/colors';
 
 export const styles = {
-  text: {
-    borderColor: blue700,
+    text: {
+      borderColor: blue700,
+    },
+    flatprev: {
+      backgroundColor: blue500,
+      color: 'black',
+      margin: '4%'
+    },
+    flatnext: {
+      backgroundColor: blue500,
+      color: 'black',
+      margin: '4%'
     },
     back: {
       backgroundColor: blue700
@@ -127,5 +137,8 @@ export const styles = {
       color: blue700,
       backgroundColor: "transparent",
       textDecoration: 'none'
+    },
+    hidden: {
+      display: 'none',
     },
 };
