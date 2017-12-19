@@ -51,6 +51,8 @@ class Login extends React.Component {
         localStorage.setItem('token', token)
         const id = response.data.user_id
         localStorage.setItem('id', id)
+        const username = response.data.username
+        localStorage.setItem('username', username)
         this.setState({
           isLoggedIn: true
         })
