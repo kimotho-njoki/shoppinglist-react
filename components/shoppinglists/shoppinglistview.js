@@ -17,6 +17,7 @@ import axios from 'axios';
 
 import EditShoppinglist from "./shoppinglistedit";
 import AddShoppinglist from "./shoppinglistadd";
+import Pagination from "../misc/pagination";
 import { SearchDisplay } from "../misc/searchdisplay";
 
 class ViewShoppinglist extends React.Component {
@@ -43,6 +44,7 @@ class ViewShoppinglist extends React.Component {
         this.handleEditModal = this.handleEditModal.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSearchList = this.handleSearchList.bind(this);
+        this.handlePagination = this.handlePagination.bind(this);
         this.showAlert = this.showAlert.bind(this);
     }
 
@@ -129,7 +131,7 @@ class ViewShoppinglist extends React.Component {
             localStorage.setItem('id', id)
             this.getShoppinglists()
             this.handleClose()
-            this.msg.success(response.data.message)
+            this.msg.success("shoppinglist created")
           }
         ).catch(
           (error) => {
@@ -151,7 +153,7 @@ class ViewShoppinglist extends React.Component {
         }).then((response) => {
             this.getShoppinglists()
             this.handleClose()
-            this.msg.success(response.data.message)
+            this.msg.success("shoppinglist updated")
         }).catch(
         (error) => {
             this.msg.error(error.response.data.message)
@@ -185,7 +187,9 @@ class ViewShoppinglist extends React.Component {
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then((response) => {
             this.setState({
-                shoppinglists: response.data.shoppinglists
+                shoppinglists: response.data.shoppinglists,
+                nextpage: response.data.next_page,
+                prevpage: response.data.previous_page,
             });
         }).catch(
         (error) => {
@@ -213,6 +217,26 @@ class ViewShoppinglist extends React.Component {
                     searchedshoppinglist: [],
                 });
                 this.msg.error('Shoppinglist does not exist')
+            }
+        )
+    }
+
+// get shoppinglists in paginated format
+    handlePagination(url) {
+        axios({
+            url: `http://127.0.0.1:5000${url}`,
+            method: 'GET',
+            headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
+        }).then(
+            (response) => {
+                this.setState({
+                    nextpage: response.data.next_page,
+                    prevpage: response.data.previous_page,
+                    shoppinglists: response.data.shoppinglists
+                });
+        }).catch(
+            (error) => {
+                this.msg.error(error.response.data.message)
             }
         )
     }
@@ -308,7 +332,7 @@ class ViewShoppinglist extends React.Component {
             <div>
                 <Toolbar>
                     <ToolbarGroup >
-                        <Link to="/" style={styles.listlink}> <ToolbarTitle text="Home" /> </Link>
+                      <ToolbarTitle text={`Welcome ${localStorage.getItem('username')}`} />
                     </ToolbarGroup>
                     <ToolbarGroup>
                         <Link to="/logout" style={styles.listlink}> <ToolbarTitle text="Logout" /> </Link>
@@ -365,6 +389,12 @@ class ViewShoppinglist extends React.Component {
                     open={this.state.openDelete} >
                     <p style={styles.para}> Permanently delete this shoppinglist? </p>
                 </Dialog>
+
+                <Pagination 
+                    nextpage={this.state.nextpage}
+                    prevpage={this.state.prevpage}
+                    handlePagination={this.handlePagination}
+                />
             </div>
         )
     }
