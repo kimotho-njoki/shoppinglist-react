@@ -7,7 +7,9 @@
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "start": "webpack-dev-server --hot",
-    "test": "jasmine"
+    "test": "mocha --recursive --compilers js:babel-core/register -r jsdom-global/register",
+    "coverage": "nyc npm test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "material-ui": "^0.19.4",
     "material-ui-icons": "^1.0.0-beta.17",
     "material-ui-search-bar": "^0.4.1",
+    "prop-types": "^15.6.0",
     "react": "^16.1.0",
     "react-alert": "^2.4.0",
     "react-dom": "^16.1.0",
@@ -41,11 +44,16 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "chai": "^4.1.2",
     "chai-enzyme": "^0.8.0",
+    "coveralls": "^3.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.13.0",
     "eslint-plugin-react": "^7.5.1",
+    "global-jsdom": "4.2.0",
+    "jsdom": "11.5.1",
+    "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
     "sinon": "^4.1.3"
   }
 }
