@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kimotho-njoki/shoppinglist-react.svg?branch=develop)](https://travis-ci.org/kimotho-njoki/shoppinglist-react)
+[![Build Status](https://travis-ci.org/kimotho-njoki/shoppinglist-react.svg?branch=develop)](https://travis-ci.org/kimotho-njoki/shoppinglist-react) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8351069c4b33460781b9de422c431ff0)](https://www.codacy.com/app/kimotho-njoki/shoppinglist-react?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kimotho-njoki/shoppinglist-react&amp;utm_campaign=Badge_Grade)
 
 # shoppinglist-react
 A react application that consumes a shoppinglist api enabling a user to 
