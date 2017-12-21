@@ -2,7 +2,8 @@ var config = {
    entry: './main.js',
 	
    output: {
-      path:'/',
+      path: __dirname,
+      publicPath:'/',
       filename: 'bundle.js',
    },
 	
