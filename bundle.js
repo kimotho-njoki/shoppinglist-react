@@ -27312,7 +27312,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this2 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/',
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/',
                 method: 'POST',
                 data: {
                     name: this.state.shoppinglistname
@@ -27341,7 +27341,7 @@ var ViewShoppinglist = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + id,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + id,
                 data: {
                     name: this.state.newshoppinglistname
                 },
@@ -27366,7 +27366,7 @@ var ViewShoppinglist = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + id,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + id,
                 method: 'DELETE',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27386,7 +27386,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this5 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/',
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/',
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27410,7 +27410,7 @@ var ViewShoppinglist = function (_React$Component) {
             var search = this.state.search;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/?q=' + search,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/?q=' + search,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27433,7 +27433,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this7 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com' + url,
+                url: 'https://secure-springs-73848.herokuapp.com' + url,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -58608,7 +58608,7 @@ var Login = function (_React$Component) {
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      _axios2.default.post('https://shopreact.herokuapp.com/auth/login/', {
+      _axios2.default.post('https://secure-springs-73848.herokuapp.com/auth/login/', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password
@@ -65634,7 +65634,7 @@ var Register = function (_React$Component) {
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      _axios2.default.post('https://shopreact.herokuapp.com/auth/register/', {
+      _axios2.default.post('https://secure-springs-73848.herokuapp.com/auth/register/', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
@@ -75277,7 +75277,7 @@ var ViewItems = function (_React$Component) {
             var _this2 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
                 method: 'POST',
                 data: {
                     name: this.state.shoppingitemname,
@@ -75305,7 +75305,7 @@ var ViewItems = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
                 method: 'PUT',
                 data: {
                     name: this.state.newshoppingitemname,
@@ -75333,7 +75333,7 @@ var ViewItems = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
                 method: 'DELETE',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -75355,7 +75355,7 @@ var ViewItems = function (_React$Component) {
             var _this5 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
+                url: 'hhttps://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
                 method: 'GET',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -75381,7 +75381,7 @@ var ViewItems = function (_React$Component) {
             var search = this.state.search;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items?q=' + search,
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items?q=' + search,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -75404,7 +75404,7 @@ var ViewItems = function (_React$Component) {
             var _this7 = this;
 
             (0, _axios2.default)({
-                url: 'https://shopreact.herokuapp.com' + url,
+                url: 'https://secure-springs-73848.herokuapp.com' + url,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -75867,7 +75867,7 @@ var Reset = function (_React$Component) {
       var _this2 = this;
 
       (0, _axios2.default)({
-        url: 'https://shopreact.herokuapp.com/auth/reset',
+        url: 'https://secure-springs-73848.herokuapp.com/auth/reset',
         method: 'PUT',
         data: {
           email: this.state.email,
