@@ -27312,7 +27312,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this2 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/',
+                url: 'https://shopreact.herokuapp.com/shoppinglists/',
                 method: 'POST',
                 data: {
                     name: this.state.shoppinglistname
@@ -27341,7 +27341,7 @@ var ViewShoppinglist = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + id,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + id,
                 data: {
                     name: this.state.newshoppinglistname
                 },
@@ -27366,7 +27366,7 @@ var ViewShoppinglist = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + id,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + id,
                 method: 'DELETE',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27386,7 +27386,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this5 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/',
+                url: 'https://shopreact.herokuapp.com/shoppinglists/',
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27410,7 +27410,7 @@ var ViewShoppinglist = function (_React$Component) {
             var search = this.state.search;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/?q=' + search,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/?q=' + search,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -27433,7 +27433,7 @@ var ViewShoppinglist = function (_React$Component) {
             var _this7 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000' + url,
+                url: 'https://shopreact.herokuapp.com' + url,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -28759,6 +28759,7 @@ var _styling = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// component handling pagination in both shopping lists and items
 var Pagination = function Pagination(props) {
     return _react2.default.createElement(
         'div',
@@ -52602,6 +52603,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+// with a PrivateRoute a user can only navigate to a certain page only if they are logged in
 var PrivateRoute = function PrivateRoute(_ref) {
     var Component = _ref.component,
         rest = _objectWithoutProperties(_ref, ["component"]);
@@ -52614,6 +52616,7 @@ var PrivateRoute = function PrivateRoute(_ref) {
         } }));
 };
 
+// presentational component handling routes matching different components
 var Routes = function Routes() {
     return _react2.default.createElement(
         _reactRouterDom.BrowserRouter,
@@ -58605,7 +58608,7 @@ var Login = function (_React$Component) {
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      _axios2.default.post('http://127.0.0.1:5000/auth/login/', {
+      _axios2.default.post('https://shopreact.herokuapp.com/auth/login/', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password
@@ -65631,7 +65634,7 @@ var Register = function (_React$Component) {
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      _axios2.default.post('http://127.0.0.1:5000/auth/register/', {
+      _axios2.default.post('https://shopreact.herokuapp.com/auth/register/', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
@@ -75274,7 +75277,7 @@ var ViewItems = function (_React$Component) {
             var _this2 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
                 method: 'POST',
                 data: {
                     name: this.state.shoppingitemname,
@@ -75302,7 +75305,7 @@ var ViewItems = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
                 method: 'PUT',
                 data: {
                     name: this.state.newshoppingitemname,
@@ -75330,7 +75333,7 @@ var ViewItems = function (_React$Component) {
             var id = this.state.id;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items/' + id,
                 method: 'DELETE',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -75352,7 +75355,7 @@ var ViewItems = function (_React$Component) {
             var _this5 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
                 method: 'GET',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -75378,7 +75381,7 @@ var ViewItems = function (_React$Component) {
             var search = this.state.search;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000/shoppinglists/' + localStorage.getItem('shop_id') + '/items?q=' + search,
+                url: 'https://shopreact.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items?q=' + search,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -75401,7 +75404,7 @@ var ViewItems = function (_React$Component) {
             var _this7 = this;
 
             (0, _axios2.default)({
-                url: 'http://127.0.0.1:5000' + url,
+                url: 'https://shopreact.herokuapp.com' + url,
                 method: 'GET',
                 headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
             }).then(function (response) {
@@ -75864,7 +75867,7 @@ var Reset = function (_React$Component) {
       var _this2 = this;
 
       (0, _axios2.default)({
-        url: 'http://127.0.0.1:5000/auth/reset',
+        url: 'https://shopreact.herokuapp.com/auth/reset',
         method: 'PUT',
         data: {
           email: this.state.email,
