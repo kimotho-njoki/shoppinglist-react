@@ -9,7 +9,7 @@ import NotFound from "./components/misc/notfound";
 import LogOut from "./components/auth/logout";
 import { isAuthenticated } from "./components/auth/helper";
 
-
+// with a PrivateRoute a user can only navigate to a certain page only if they are logged in
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         isAuthenticated ? (
@@ -23,6 +23,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         )}/>
     )
 
+// presentational component handling routes matching different components
 const Routes = () => (
     <BrowserRouter>
         <Switch>
