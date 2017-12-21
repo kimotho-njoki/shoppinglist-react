@@ -109,7 +109,7 @@ class ViewItems extends React.Component {
 // posts user input to the api to create a shoppinglist item
     handleAddItem(event) {
         axios({
-            url: `https://shopreact.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
+            url: `https://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
             method: 'POST',
             data: {
                 name: this.state.shoppingitemname,
@@ -135,7 +135,7 @@ class ViewItems extends React.Component {
     handleEditItem() {
         const { id } = this.state
         axios({
-            url: `https://shopreact.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items/${id}`,
+            url: `https://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items/${id}`,
             method: 'PUT',
             data: {
                 name: this.state.newshoppingitemname,
@@ -161,7 +161,7 @@ class ViewItems extends React.Component {
     handleDeleteItem() {
         const { id } = this.state
         axios({
-            url: `https://shopreact.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items/${id}`,
+            url: `https://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items/${id}`,
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -182,7 +182,7 @@ class ViewItems extends React.Component {
 // gets shoppinglist items from the api
     getShoppingItems() {
         axios({
-            url: `https://shopreact.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
+            url: `hhttps://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -205,7 +205,7 @@ class ViewItems extends React.Component {
     handleSearchItem() {
         const { search } = this.state
         axios({
-            url:`https://shopreact.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items?q=${search}`,
+            url:`https://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items?q=${search}`,
             method: 'GET',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then(
@@ -227,7 +227,7 @@ class ViewItems extends React.Component {
 // get shoppingitems in paginated format 
     handlePagination(url) {
         axios({
-            url: `https://shopreact.herokuapp.com${url}`,
+            url: `https://secure-springs-73848.herokuapp.com${url}`,
             method: 'GET',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then(

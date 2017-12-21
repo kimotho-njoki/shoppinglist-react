@@ -37,7 +37,7 @@ class Register extends React.Component {
 // posts user input to the api to register them
   handleSubmit(event) {
     axios.post(
-      'https://shopreact.herokuapp.com/auth/register/',
+      'https://secure-springs-73848.herokuapp.com/auth/register/',
       {
         username: this.state.username,
         email: this.state.email,
