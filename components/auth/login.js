@@ -39,7 +39,7 @@ class Login extends React.Component {
 // posts user input to the api to log them in
   handleSubmit(event) {
     axios.post(
-      'http://127.0.0.1:5000/auth/login/',
+      'https://shopreact.herokuapp.com/auth/login/',
       {
         username: this.state.username,
         email: this.state.email,

@@ -117,7 +117,7 @@ class ViewShoppinglist extends React.Component {
 // posts user input to the api to create a shoppinglist 
     handleAdd(event) {
         axios({
-            url :'http://127.0.0.1:5000/shoppinglists/',
+            url :'https://shopreact.herokuapp.com/shoppinglists/',
             method : 'POST',
             data : {
                 name: this.state.shoppinglistname
@@ -144,7 +144,7 @@ class ViewShoppinglist extends React.Component {
     handleEdit() {
         const { id } = this.state
         axios({
-            url:`http://127.0.0.1:5000/shoppinglists/${id}`,
+            url:`https://shopreact.herokuapp.com/shoppinglists/${id}`,
             data : {
                 name : this.state.newshoppinglistname
             },
@@ -165,7 +165,7 @@ class ViewShoppinglist extends React.Component {
     handleDelete() {
         const { id } = this.state
         axios({
-            url:`http://127.0.0.1:5000/shoppinglists/${id}`,
+            url:`https://shopreact.herokuapp.com/shoppinglists/${id}`,
             method: 'DELETE',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then((response) => {
@@ -182,7 +182,7 @@ class ViewShoppinglist extends React.Component {
 // gets shoppinglist from the api
     getShoppinglists() {
         axios({
-            url :'http://127.0.0.1:5000/shoppinglists/',
+            url :'https://shopreact.herokuapp.com/shoppinglists/',
             method: 'GET',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then((response) => {
@@ -202,7 +202,7 @@ class ViewShoppinglist extends React.Component {
     handleSearchList() {
         const { search } = this.state
         axios({
-            url:`http://127.0.0.1:5000/shoppinglists/?q=${search}`,
+            url:`https://shopreact.herokuapp.com/shoppinglists/?q=${search}`,
             method: 'GET',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then(
@@ -224,7 +224,7 @@ class ViewShoppinglist extends React.Component {
 // get shoppinglists in paginated format
     handlePagination(url) {
         axios({
-            url: `http://127.0.0.1:5000${url}`,
+            url: `https://shopreact.herokuapp.com${url}`,
             method: 'GET',
             headers: {Authorization : `Bearer ${localStorage.getItem('token')}`}
         }).then(

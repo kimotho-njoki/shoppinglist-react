@@ -40,7 +40,7 @@ class Reset extends React.Component {
 // method for handling password update by connecting to API
   handleSubmit(event) {
     axios({
-      url: 'http://127.0.0.1:5000/auth/reset',
+      url: 'https://shopreact.herokuapp.com/auth/reset',
       method: 'PUT',
       data:
       {

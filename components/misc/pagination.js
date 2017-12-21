@@ -2,6 +2,7 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import { styles } from '../../styling';
 
+// component handling pagination in both shopping lists and items
 const Pagination = props => (
 	<div style={styles.root}>
 
