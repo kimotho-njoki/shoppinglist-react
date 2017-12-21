@@ -4,7 +4,8 @@
 A react application that consumes a shoppinglist api enabling a user to 
 * Register and create an account
 * Login into that account
-* Create, Update and Delete a shopping list
+* Lost your password? No worries. You can password reset
+* Create, Update and Delete a shoppinglist
 * Create, Update and Delete shopping items
 * Easily search for a shopping list or item
 * Work with paginated shopping lists and items
