@@ -35,7 +35,7 @@ class Register extends React.Component {
   }
 
 // posts user input to the api to register them
-  handleSubmit(event) {
+  handleSubmit (event){
     axios.post(
       'https://secure-springs-73848.herokuapp.com/auth/register/',
       {
@@ -44,8 +44,7 @@ class Register extends React.Component {
         password: this.state.password,
         repassword: this.state.repassword
       }
-    ).then(
-     (response) => {
+    ).then((response) => {
       this.msg.success(response.data.message)   
     }
     ).catch(

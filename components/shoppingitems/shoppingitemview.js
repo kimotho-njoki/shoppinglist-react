@@ -182,7 +182,7 @@ class ViewItems extends React.Component {
 // gets shoppinglist items from the api
     getShoppingItems() {
         axios({
-            url: `hhttps://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
+            url: `https://secure-springs-73848.herokuapp.com/shoppinglists/${localStorage.getItem('shop_id')}/items`,
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
