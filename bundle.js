@@ -75355,7 +75355,7 @@ var ViewItems = function (_React$Component) {
             var _this5 = this;
 
             (0, _axios2.default)({
-                url: 'hhttps://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
+                url: 'https://secure-springs-73848.herokuapp.com/shoppinglists/' + localStorage.getItem('shop_id') + '/items',
                 method: 'GET',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
